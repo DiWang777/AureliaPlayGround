@@ -1,5 +1,5 @@
 {
-  "name": "Aurelia",
+  "name": "AureliaFirst",
   "type": "project:application",
   "platform": {
     "id": "web",
@@ -18,8 +18,8 @@
     "source": "src/**/*.ts"
   },
   "markupProcessor": {
-    "id": "none",
-    "displayName": "None",
+    "id": "minimum",
+    "displayName": "Minimal Minification",
     "fileExtension": ".html",
     "source": "src/**/*.html"
   },
@@ -30,8 +30,8 @@
     "source": "src/**/*.css"
   },
   "editor": {
-    "id": "webstorm",
-    "displayName": "WebStorm"
+    "id": "vscode",
+    "displayName": "Visual Studio Code"
   },
   "unitTestRunner": {
     "id": "karma",
