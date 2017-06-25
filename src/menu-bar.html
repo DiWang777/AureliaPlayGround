@@ -1,0 +1,11 @@
+<template>
+  <ul class="nav nav-tabs">
+    <li repeat.for="menuItem of menuItemList">
+      <a route-href="route.bind: menuItem.RouteName"> 
+          <span if.bind="menuItem.CanClose" class="glyphicon glyphicon-remove" click.delegate="RemoveMenuItem(menuItem)" ></span> 
+          <span>${menuItem.Title}</span><br>
+           <span class="tooltiptext">Tooltip text</span>
+      </a>
+    </li>
+  </ul>
+</template>
