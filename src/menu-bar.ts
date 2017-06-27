@@ -7,8 +7,6 @@ import { Guid } from './common/guid';
 @autoinject()
 
 export class MenuBar {
-  currentCss = "list-group-item active";
- 
   subscriberAddMenuItem: any;
   menuItemList: MenuItem[] = null;
   selectedMenuItem: MenuItem;

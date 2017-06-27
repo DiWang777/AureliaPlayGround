@@ -1,7 +1,6 @@
 <template>
   <ul class="nav nav-tabs ">
     <li repeat.for="menuItem of menuItemList">
-      <!--<a class.bind="menuBackground(menuItem)">-->
       <a class="list-group-item ${menuItem.selected ? 'active' : ''}">
           <span if.bind="menuItem.canClose" class="glyphicon glyphicon-remove" click.delegate="removeMenuItem(menuItem)"> </span> 
           <span click.delegate="selectMenuItem(menuItem)">${menuItem.title}</span><br>
@@ -9,5 +8,3 @@
     </li>
   </ul>
 </template>
-  
- <!--<a route-href="route.bind: menuItem.RouteName" click.delegate="RemoveMenuItem(menuItem)"> -->
