@@ -158,6 +158,11 @@
             "resources": [
               "css/bootstrap.css"
             ]
+          },
+          {
+            "name": "colresizable",
+            "path": "../node_modules/colresizable",
+            "main": "colResizable-1.6.min"
           }
         ]
       }

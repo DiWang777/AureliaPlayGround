@@ -1,20 +1,68 @@
 <template>
-  <table class="table table-condensed table-hover">
-    <thead>
+ <style>
+   table {
+     font-family: arial, sans-serif;
+     border-collapse: collapse;
+     border: 1px solid #dcdcdc;
+     width: 100%;
+   }
+
+   td, th {
+     border: 1px solid #dddddd;
+     text-align: left;
+     overflow-x: hidden;
+   }
+
+   tr:nth-child(even) {
+     background-color: #dddddd;
+   }
+
+   tbody tr:hover{
+     background-color: rgba(0, 117, 119, 0.5);
+   }
+   div.table-wrapper{
+     height: 600px;
+     overflow-y: auto;
+   }
+
+   .fixed-table-header{
+     position: fixed;
+     display:none;
+     background-color:white;
+   }
+ </style>
+  <div class="table-wrapper">
+    <table id="headerFixed" class="fixed-table-header"></table>
+    <table class="" id="dataTable">
+      <thead>
       <tr>
-        <th click.delegate="sortGrid($event, 'Code')">Code</th>
-        <th>Description</th>
-        <th></th>
+        <th click.delegate="sortGrid('Reference')" width="100px">
+          Reference
+          <i class="${(currentSort.filedName == 'Reference' && currentSort.sortOrder == 'asc')?'glyphicon glyphicon-chevron-up':''} ${(currentSort.filedName == 'Reference' && currentSort.sortOrder == 'desc')?'glyphicon glyphicon-chevron-down':''}"></i>
+        </th>
+        <th  click.delegate="sortGrid('Description')">
+          Description
+          <i class="${(currentSort.filedName == 'Description' && currentSort.sortOrder == 'asc')?'glyphicon glyphicon-chevron-up':''} ${(currentSort.filedName == 'Description' && currentSort.sortOrder == 'desc')?'glyphicon glyphicon-chevron-down':''}"></i>
+        </th>
+        <th  click.delegate="sortGrid('Amount')" width="100px">
+          Amount
+          <i class="${(currentSort.filedName == 'Amount' && currentSort.sortOrder == 'asc')?'glyphicon glyphicon-chevron-up':''} ${(currentSort.filedName == 'Amount' && currentSort.sortOrder == 'desc')?'glyphicon glyphicon-chevron-down':''}"></i>
+        </th>
+        <th width="100px">
+        </th>
       </tr>
-    </thead>
-    <tbody>
+      </thead>
+      <tbody>
       <tr repeat.for="object of objectList">
-        <td>${object.Code}</td>
-        <td>${object.FullDescription}</td>
+        <td>${object.Reference}</td>
+        <td>${object.Description}</td>
+        <td>${object.Amount}</td>
         <td>
-          <a class="btn btn-info"click.delegate="edit($event, object)">Edit</a>
+          <a class="btn btn-link" style="padding: 0" click.delegate="edit($event, object)">Edit</a>
         </td>
       </tr>
-    </tbody>
-  </table>
+      </tbody>
+    </table>
+  </div>
 </template>
+<!--bindingEngine.propertyObserver(this.value, 'sortOrder').subscribe((new, old) => {});-->

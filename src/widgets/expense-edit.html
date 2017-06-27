@@ -1,0 +1,18 @@
+<template>
+  <ux-dialog>
+    <ux-dialog-header>
+      expense Edit
+    </ux-dialog-header>
+    <ux-dialog-body>
+      <div><lable>expense Reference</lable></div>
+      <div><input value.bind="editingExpense.Reference" /></div>
+      <div><lable>expense Description</lable></div>
+      <div><input value.bind="editingExpense.Description" /></div>
+    </ux-dialog-body>
+
+    <ux-dialog-footer>
+      <button click.trigger="controller.cancel(expense)">Cancel</button>
+      <button click.trigger="controller.ok(editingExpense)">Ok</button>
+    </ux-dialog-footer>
+  </ux-dialog>
+</template>
