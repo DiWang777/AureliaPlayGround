@@ -1,5 +1,5 @@
 import {DialogController} from 'aurelia-dialog';
-import {SearchStockResult} from "./grid";
+import {SearchStockResult} from "../dtos/search-stock-result";
 
 export class EditStock{
   static inject = [DialogController];
