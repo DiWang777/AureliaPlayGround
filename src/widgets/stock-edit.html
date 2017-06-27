@@ -1,0 +1,20 @@
+<template>
+  <ux-dialog>
+    <ux-dialog-header>
+      Stock Edit
+    </ux-dialog-header>
+    <ux-dialog-body>
+      <div><lable>Stock Code</lable></div>
+      <div><input value.bind="editingStock.Code" /></div>
+      <div><lable>Stock Description</lable></div>
+      <div><input value.bind="editingStock.FullDescription" /></div>
+      <div><lable>Stock SellingPrice</lable></div>
+      <div><input value.bind="editingStock.SellingPrice" /></div>
+    </ux-dialog-body>
+
+    <ux-dialog-footer>
+      <button click.trigger="controller.cancel(stock)">Cancel</button>
+      <button click.trigger="controller.ok(editingStock)">Ok</button>
+    </ux-dialog-footer>
+  </ux-dialog>
+</template>

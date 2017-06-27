@@ -4,6 +4,9 @@ import environment from './environment';
 export function configure(aurelia: Aurelia) {
   aurelia.use
     .standardConfiguration()
+    .developmentLogging()
+    .plugin('aurelia-bootstrap')
+    .plugin('aurelia-dialog')
     .feature('resources');
 
   if (environment.debug) {

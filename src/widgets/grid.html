@@ -1,0 +1,23 @@
+<template>
+  <table class="table table-condensed table-hover">
+    <thead>
+      <tr>
+        <th>Code</th>
+        <th>Description</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr repeat.for="object of objectList">
+        <td>${object.Code}</td>
+        <td>${object.FullDescription}</td>
+        <td>
+          <a class="btn btn-info"click.delegate="edit($event, object)">Edit</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+</template>
