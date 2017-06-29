@@ -1,4 +1,38 @@
 <template>
-  <h1>THis is Home</h1>
-  <compose view-model="../../widgets/grid" model.bind="{ target : 'World' }" ></compose>
+  <!--<h1>THis is Home</h1>
+  <a class="btn btn-success" click.delegate="testClick()">Click</a>
+  <compose view-model="../../widgets/grid" model.bind="{source: gridDataSource}"></compose>-->
+  
+  <!--<require from="select2/css/select2.min.css"></require>-->
+    <require from="../../widgets/combo-box"></require>
+    <require from="select2/css/select2.css"></require>
+  <select2 options.bind="selectOptions"></compose>
+    
+    
+    <!--<label for="single-select2-select">Single Select2 Select</label>
+      <select
+         style="width: 300px" 
+         id="single-select2-select"
+         select2.bind="selectOptions"
+         value.bind="selectedValue"
+         change.delegate="changeCallback($event)">
+        <option repeat.for="val of singleSelectValues" model.bind="val">
+          ${val}
+        </option>
+      </select>
+
+
+    <label for="multiple-select2-select">Multiple Select2 Select
+      <select 
+         style="width: 300px" 
+        id="multiple-select2-select"
+        select2
+        multiple
+        value.bind="selectedValues"
+        change.delegate="changeCallback($event)">
+        <option repeat.for="val of multipleSelectValues" model.bind="val">
+          ${val}
+        </option>
+      </select>
+    </label>-->
 </template>

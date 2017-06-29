@@ -1,5 +1,9 @@
 {
   "dependencies": {
     "aurelia-dialog": "github:aurelia/dialog"
+  },
+  "globalDependencies": {
+    "jquery": "registry:dt/jquery#1.10.0+20170310222111",
+    "select2": "registry:dt/select2#4.0.1+20170309212512"
   }
 }
