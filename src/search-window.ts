@@ -1,7 +1,13 @@
+import { autoinject } from 'aurelia-framework';
+import { EventAggregator } from 'aurelia-event-aggregator';
+import { MenuItem } from './common/menu-item';
+
+@autoinject()
+
 export class SearchWindow {
     email: string = "";
 
-    constructor() {
+    constructor(private eventAggregator: EventAggregator) {
         console.debug("SearchWindow constructor");
         this.email = "SearchWindow ADDRESS";
     }
@@ -30,12 +36,19 @@ export class SearchWindow {
 
     canDeactivate(){
          console.debug("SearchWindow canDeactivate");
-         //return true;
-          if (confirm("Want to move?")) return true;
-          return false;
+         return true;
+         // if (confirm("Want to move?")) return true;
+         // return false;
     }
 
-
+CreatePageFourMenu() {
+    var menuItem: MenuItem = new MenuItem();
+    menuItem.canClose = true;
+    menuItem.title = "PageFour";
+    menuItem.routeName = "page-four";
+    this.eventAggregator.publish('AddMenuItem', menuItem);
+  }
+ 
 
 
 

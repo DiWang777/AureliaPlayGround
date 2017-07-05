@@ -1,12 +1,14 @@
 import {Router, RouterConfiguration} from 'aurelia-router';
-import {MenuItem} from './menu-bar';
+//import {AddMainMenuEvent} from './home';
 import {Guid} from './common/guid';
 
 export class App {
   router: Router;
-  menuItemList: MenuItem[] = null;
+  menuType: any;
+
 
   constructor() {
+   // this.menuType = AddMainMenuEvent;
   }
 
   configureRouter(config: RouterConfiguration, router: Router){

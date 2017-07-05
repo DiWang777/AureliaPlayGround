@@ -1,6 +1,42 @@
 <template>
-  <h1> Home Page </h1>
-    <br><button  click.delegate="CreatePageOneMenu()">Add a Page One Menu Item </button>
-    <br><button  click.delegate="CreatePageTwoMenu()">Add a Page Two Menu Item </button>
-    <br><button  click.delegate="CreateSearchWindow()">Add a Search Page Menu Item </button>
+  <!--<h1> Home Page </h1>
+  <br><button click.delegate="CreatePageOneMenu()">Add a Page One Menu Item </button>
+  <br><button click.delegate="CreatePageTwoMenu()">Add a Page Two Menu Item </button>
+  <br><button click.delegate="CreateSearchWindow()">Add a Search Page Menu Item </button>-->
+
+  <div class="col-md-12">
+
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">General Ledger Reports with panel-body</div>
+        <div class="panel-body" click.delegate="CreatePageOneMenu()">Chart of Accounts</div>
+        <div class="panel-body" click.delegate="CreatePageTwoMenu()">Trial Balance</div>
+        <div class="panel-body" click.delegate="CreatePageTwoMenu()">12 Month Actual and/or Budget</div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">General Ledger Reports with panel-body</div>
+        <!-- List group -->
+        <ul class="list-group">
+          <li class="list-group-item" click.delegate="CreatePageTwoMenu()">Cras justo odio</li>
+          <li class="list-group-item" click.delegate="CreatePageTwoMenu()">Dapibus ac facilisis in</li>
+          <li class="list-group-item" click.delegate="CreatePageTwoMenu()">Morbi leo risus</li>
+          <li class="list-group-item" click.delegate="CreatePageTwoMenu()">Porta ac consectetur ac</li>
+          <li class="list-group-item" click.delegate="CreatePageTwoMenu()">Vestibulum at eros</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">General Ledger Settings</div>
+        <div class="panel-body" click.delegate="CreatePageTwoMenu()">Report Format List</div>
+      </div>
+    </div>
+    
 </template>

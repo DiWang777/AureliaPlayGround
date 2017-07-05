@@ -2,11 +2,11 @@ import { Router } from 'aurelia-router';
 import { bindable } from 'aurelia-framework';
 import { autoinject } from 'aurelia-framework';
 import { EventAggregator } from 'aurelia-event-aggregator';
-import { Guid } from './common/guid';
+import { Guid } from './guid';
 
 @autoinject()
 
-export class MenuBar {
+export class MainMenu {
   subscriberAddMenuItem: any;
   menuItemList: MenuItem[] = null;
   selectedMenuItem: MenuItem;
@@ -15,6 +15,9 @@ export class MenuBar {
 
   routerNavigationSuccessSubscription: any;
   routerNavigationCanceledSubscription: any;
+
+  // @bindable({name:'add-menu-event'})
+  // addMenuEvent: any;
 
   constructor(private eventAggregator: EventAggregator, private router: Router) {
     this.menuItemList = new Array<MenuItem>();
@@ -26,12 +29,16 @@ export class MenuBar {
 
   attached() {
     console.debug("menu-bar:attached");
+    var item = new MenuItem();
+    item.canClose = false;
+    item.title = "Home";
+    item.routeName = "Home";
+    item.autoOpen = true;
 
-    this.addMenuItem(false, "Home", "Home", "");
+    this.addMenuItem(false,"Home", "Home", null, true );
 
-    this.subscriberAddMenuItem = this.eventAggregator.subscribe('AddMenuItem', response => {
-      this.addMenuItem(response.canClose, response.title, response.routeName, response.params);
-    });
+    this.subscriberAddMenuItem = this.eventAggregator.subscribe('AddMenuItem', response => { this.addMenuItem(response.canClose, response.title, response.routeName, response.params, response.autoOpen); });
+    //this.eventAggregator.subscribe(this.addMenuEvent, (response) => { this.addMenuItem(response.canClose, response.title, response.routeName, response.params, response.autoOpen); });
     this.routerNavigationSuccessSubscription = this.eventAggregator.subscribe('router:navigation:success', this.handleRouterNavigationSuccessEvent.bind(this));
     this.routerNavigationCanceledSubscription = this.eventAggregator.subscribe('router:navigation:canceled', this.handleRouterNavigationCanceledEvent.bind(this));
   }
@@ -75,18 +82,19 @@ export class MenuBar {
     this.routerNavigationSuccessSubscription.dispose();
   }
 
-  addMenuItem(canClose: boolean, title: string, routeName: string, params: any) {
-    console.debug("menu-bar:AddMenuItem");
-
-    // have to check the same item is not there already
+  addMenuItem(canClose: boolean, title: string, routeName: string, params: any, autoOpen: boolean){
     var item = new MenuItem();
-    item.id = Guid.newGuid();
+
+
+    console.debug("menu-bar:AddMenuItem");
     item.canClose = canClose;
     item.title = title;
     item.routeName = routeName;
     item.params = params;
-    item.internalHashKey = this.getInternalHashKey(item);
+    item.autoOpen = autoOpen;
 
+    item.id = Guid.newGuid();
+    item.internalHashKey = this.getInternalHashKey(item);
     for (var i = this.menuItemList.length - 1; i >= 0; i--) {
       if (this.menuItemList[i].internalHashKey === item.internalHashKey) {
          this.selectMenuItem(this.menuItemList[i]);
@@ -95,8 +103,11 @@ export class MenuBar {
     }
     // not found so push...
     this.menuItemList.push(item);
+
+    if (item.autoOpen){
     // now assume we want to go to it
-    this.selectMenuItem(item);
+      this.selectMenuItem(item);
+    }
   }
 
   getInternalHashKey(item: MenuItem){
@@ -145,12 +156,13 @@ export class MenuBar {
   }
 }
 
-export class MenuItem {
+class MenuItem {
   id: string;
   canClose: boolean;
   title: string;
   routeName: string;
   params: any;
+  autoOpen: boolean;
   selected: boolean;
   internalHashKey: string;
 }
