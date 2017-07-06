@@ -71,7 +71,7 @@
             ".html",
             ".css"
           ],
-          "stub": true
+          "stub": false
         }
       ]
     },
@@ -132,7 +132,28 @@
             "path": "../node_modules/aurelia-testing/dist/amd",
             "main": "aurelia-testing",
             "env": "dev"
+          },
+          "jquery",
+          {
+            "name": "kendo",
+            "path": "../node_modules/@progress/kendo-ui/",
+            "resources": [
+              "js/kendo.grid.js",
+             
+              "css/web/kendo.common.css",
+              "css/web/kendo.default.css"
+            ]
+            },
+          {
+          "name": "aurelia-kendoui-bridge",
+          "path": "../node_modules/aurelia-kendoui-bridge/dist/amd",
+          "main": "index",
+          "resources": [
+            "common/*.{js,html}",
+            "grid/*.{js,html}"
+          ]
           }
+
         ]
       }
     ]
