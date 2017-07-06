@@ -1,4 +1,3 @@
-
 import {DialogService} from "aurelia-dialog";
 import {EditExpense} from "./expense-edit";
 import {SearchDsExpenseResult} from "../dtos/search-ds-expense-result";
@@ -11,7 +10,6 @@ import * as $ from 'jquery';
 export class Grid {
   autoClose = 'disabled';
   objectList = [];
-
 
   currentSort = {filedName: null, sortOrder: null};
 

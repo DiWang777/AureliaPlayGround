@@ -4,9 +4,12 @@
   <compose view-model="../../widgets/grid" model.bind="{source: gridDataSource}"></compose>-->
   
   <!--<require from="select2/css/select2.min.css"></require>-->
-    <require from="../../widgets/combo-box"></require>
     <require from="select2/css/select2.css"></require>
-  <select2 options.bind="selectOptions"></compose>
+    <require from="../../widgets/combo-box"></require>
+    <select2 options.bind="selectOptions"></select2>
+    
+    <require from="../../widgets/select2-d"></require>
+    <select2-d options.bind="selectOptions"></select2-d>
     
     
     <!--<label for="single-select2-select">Single Select2 Select</label>

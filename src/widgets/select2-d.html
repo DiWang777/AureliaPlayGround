@@ -1,0 +1,12 @@
+<template>
+    <div>
+        Hello this is D
+        <select multiple name.bind="name" id.bind="name" value.bind="selected" style="width: 300px">
+            <option repeat.for="option of options"
+                    model.bind="option[valueproperty]"
+                    value="${option[valueproperty]}">
+                ${option[labelproperty]}
+            </option>
+        </select>        
+    </div>
+</template>
